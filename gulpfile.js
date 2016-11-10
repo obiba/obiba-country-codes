@@ -7,7 +7,6 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var fs = require('fs');
-var fse = require('fs-extra')
 
 gulp.task('default', ['create:all']);
 
@@ -15,7 +14,7 @@ gulp.task('create:all', function () {
   var files = JSON.parse(fs.readFileSync('./sources.json', 'utf-8'));
   files.forEach(function(file){
     gulp.src(file)
-      .pipe(inject.prepend('obibaCountryCodes.' + path.basename(file).replace('\.*$','') + ' = '))
+      .pipe(inject.prepend('obibaCountryCodes.' + path.basename(file) + ' = '))
       .pipe(inject.append(';'))
       .pipe(gulp.dest('tmp'))
     ;
@@ -27,5 +26,6 @@ gulp.task('create:all', function () {
     .pipe(gulp.dest('dist'))
     .pipe(uglify())
     .pipe(rename('all.min.js'))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('dist'));
+
 });
