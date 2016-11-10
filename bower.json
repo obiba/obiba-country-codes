@@ -1,0 +1,21 @@
+{
+  "name": "obiba-country-codes",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "obiba",
+  "main": [
+    "dist/all.js",
+    "dist/all.min.js"
+  ],
+  "keywords": [
+    "form",
+    "json",
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
