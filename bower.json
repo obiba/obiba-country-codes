@@ -2,14 +2,15 @@
   "name": "obiba-country-codes",
   "version": "1.0.0",
   "license": "MIT",
-  "author": "obiba",
+  "author": "OBiBa",
   "main": [
-    "dist/all.js",
-    "dist/all.min.js"
+    "dist/all.js"
   ],
   "keywords": [
-    "form",
-    "json",
+    "locale",
+    "country",
+    "ISO 3166-1",
+    "alpha-3"
   ],
   "ignore": [
     "**/.*",

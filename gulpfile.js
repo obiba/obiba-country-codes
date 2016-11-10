@@ -9,28 +9,13 @@ var rename = require('gulp-rename');
 var fs = require('fs');
 var fse = require('fs-extra')
 
-gulp.task('debug', ['toto']);
-//gulp.task('default', ['minify']);
-//gulp.task('run', ['minify', 'connect', 'watch']);
+gulp.task('default', ['create:all']);
 
-gulp.task('connect', function () {
-  connect.server({
-    root: ['demo', './'],
-    port: 8888,
-    livereload: true,
-  });
-});
-
-gulp.task('reload', ['minify'], function () {
-  gulp.src('./dist/**/*.*').pipe(connect.reload());
-});
-
-
-gulp.task('toto', function () {
+gulp.task('create:all', function () {
   var files = JSON.parse(fs.readFileSync('./sources.json', 'utf-8'));
   files.forEach(function(file){
     gulp.src(file)
-      .pipe(inject.prepend('obibaCountryCodes.' + path.basename(file) + ' = '))
+      .pipe(inject.prepend('obibaCountryCodes.' + path.basename(file).replace('\.*$','') + ' = '))
       .pipe(inject.append(';'))
       .pipe(gulp.dest('tmp'))
     ;
